@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-9">
+    <nb-card>
+      <nb-card-header>Profile</nb-card-header>
+      <nb-card-body>
+        <toaster-container [toasterconfig]="config"></toaster-container>
+        <form>
+          <div class="form-group row">
+            <label for="inputUserName" class="col-sm-3 col-form-label">User Name</label>
+            <div class="col-sm-9">
+              <input name="name" [(ngModel)]="profile.name" type="text" class="form-control"
+                     id="inputUserName" placeholder="User Name" #name="ngModel">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input  name="email" type="email" [(ngModel)]="profile.email" type="text" class="form-control"
+                     id="inputEmail" placeholder="Email" #email="ngModel">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputCheckNotifications" class="col-sm-3 col-form-label">Notifications</label>
+            <div class="col-sm-9">
+              <nb-checkbox name="shortage" [(ngModel)]="notifications_shortage">Shortage reports</nb-checkbox>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputOldPassword" class="col-sm-3 col-form-label">Old Password</label>
+            <div class="col-sm-9">
+              <input name="oldPassword" type="password" class="form-control" id="inputOldPassword" placeholder="Old Password"
+              [(ngModel)]="oldPassword">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputNewPassword" class="col-sm-3 col-form-label">New Password</label>
+            <div class="col-sm-9">
+              <input name="newPassword" type="password" class="form-control" id="inputNewPassword" placeholder="New Password"
+              [(ngModel)]="newPassword">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputConfirmPassword" class="col-sm-3 col-form-label">Confirm Password</label>
+            <div class="col-sm-9">
+              <input name="confirmPassword" type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"
+              [(ngModel)]="confirmPassword">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="button" class="btn btn-secondary" (click)="saveClicked($event)">Save</button>
+              <button type="button" class="btn btn-secondary" (click)="cancelClicked($event)">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

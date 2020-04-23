@@ -1,0 +1,112 @@
+<div class="row">
+    <div class="col-lg-9">
+      <nb-actions
+        size="medium"
+        class="header-container"
+        [class.right]="true"
+        [class.left]="false">
+          <nb-action class="control-item" (click)="navClicked('admin')">Admin</nb-action>
+          <nb-action class="control-item" (click)="navClicked('users')">Users</nb-action>
+          <nb-action class="control-item">{{title}}</nb-action>
+      </nb-actions>    
+    </div>
+  </div>
+<div class="row">
+  <div class="col-lg-9">
+    <nb-card>
+        <nb-card-header>{{user.name || 'New User'}}</nb-card-header>
+        <nb-card-body>
+          <form class="form-horizontal">
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-3 form-control-label">
+                Status
+              </label>
+              <div class="col-sm-9">
+                <label class="custom-control custom-radio" *ngFor="let item of active_type">
+                  <input type="radio" class="custom-control-input" name="active" [(ngModel)]="user.active" [value]="item.id" [checked]="user.active == item.id">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">{{item.name}}</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="name" class="col-sm-3 form-control-label">Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" [(ngModel)]="user.name" placeholder="Please enter Name">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="email" class="col-sm-3 form-control-label">Email</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="email" [(ngModel)]="user.email"  placeholder="name@company.com">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="username" class="col-sm-3 form-control-label">User Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="username" [(ngModel)]="user.username" placeholder="Please enter Username">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="phone" class="col-sm-3 form-control-label">Phone</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="phone" [(ngModel)]="user.phone" placeholder="+1 234 456 7890">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="password" class="col-sm-3 form-control-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" name="password" [(ngModel)]="password">
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="password2" class="col-sm-3 form-control-label">Re-enter Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" name="password2" [(ngModel)]="password2">
+              </div>
+            </div>
+  
+            <div class="form-group row" *ngFor="let method of permission_methods">
+              <label for="view-permission" class="col-sm-3 form-control-label">{{method.name}}</label>
+              <div class="col-sm-9">
+                <ss-multiselect-dropdown
+                  name="permisions"
+                  [settings]="permissionSettings"
+                  [options]="permissions[method.id]"
+                  [(ngModel)]="selectedPermissions[method.id]"
+                  (ngModelChange)="onPermissionsChange($event)">
+                </ss-multiselect-dropdown>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="advertisers" class="col-sm-3 form-control-label">Advertisers / Publishers</label>
+              <div class="col-sm-9">
+                <ss-multiselect-dropdown
+                  name="advertisers"
+                  [options]="advertisers"
+                  [(ngModel)]="selectedAdvertisers"
+                  (ngModelChange)="onAdvertisersChange($event)">
+                </ss-multiselect-dropdown>
+              </div>
+            </div>
+          </form>  
+        </nb-card-body>
+        <nb-card-footer>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="submit" class="btn btn-info" (click)="saveClicked($event)">Save User</button>
+              <button type="submit" class="btn btn-primary" (click)="cancelClicked($event)">Cancel</button>
+            </div>
+          </div>
+        </nb-card-footer>
+      </nb-card>
+  </div>
+</div>

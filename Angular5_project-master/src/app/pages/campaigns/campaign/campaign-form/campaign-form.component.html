@@ -1,0 +1,96 @@
+<div class="row">
+  <div class="col-lg-9">
+    <nb-card>
+        <nb-card-header>New Campaign</nb-card-header>
+        <nb-card-body>
+          <form class="form-horizontal">
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-3 form-control-label">
+                Status
+              </label>
+              <div class="col-sm-9">
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Active</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio" checked>
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Inactive</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-3 form-control-label">Campaign Name</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputIABCategory" class="col-sm-3 form-control-label">IAB Category</label>
+              <div class="col-sm-9">
+                <select class="form-control" id="inputIABCategory">
+                  <option>Books & Literature</option>
+                  <option>Celebrity Fan/Gossip</option>
+                  <option>Fine Art</option>
+                  <option>Humor</option>
+                  <option>Movies</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="" class="col-sm-3 form-control-label">Daily Spend Cap</label>
+              <div class="col-sm-9">
+                <nb-checkbox>No daily spend cap</nb-checkbox>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="" class="col-sm-3 form-control-label">Campaign Frequency Cap</label>
+              <div class="col-sm-9">
+                <nb-checkbox>No frequency cap</nb-checkbox>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="" class="col-sm-3 form-control-label">Attribution & Tracking</label>
+              <div class="col-sm-9">
+                <nb-checkbox>Enabled</nb-checkbox>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="" class="col-sm-3 form-control-label">Time Zone</label>
+              <div class="col-sm-9">
+                <select class="form-control">
+                  <option>Books & Literature</option>
+                  <option>Celebrity Fan/Gossip</option>
+                  <option>Fine Art</option>
+                  <option>Humor</option>
+                  <option>Movies</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="" class="col-sm-3 form-control-label">Custom Data</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Custom Data">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <div class="checkbox">
+                  <nb-checkbox>Budget flights</nb-checkbox>
+                </div>
+              </div>
+            </div>
+          </form>
+        </nb-card-body>
+        <nb-card-footer>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="submit" class="btn btn-warning">Next</button>
+            </div>
+          </div>
+        </nb-card-footer>
+      </nb-card>
+  </div>
+</div>

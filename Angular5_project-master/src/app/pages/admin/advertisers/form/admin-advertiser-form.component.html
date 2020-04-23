@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-lg-9">
+    <nb-actions
+      size="medium"
+      class="header-container"
+      [class.right]="true"
+      [class.left]="false">
+        <nb-action class="control-item" (click)="navClicked('admin')">Admin</nb-action>
+        <nb-action class="control-item" (click)="navClicked('adavertisers')">Advertisers</nb-action>
+        <nb-action class="control-item">Edit</nb-action>
+    </nb-actions>    
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-9">
+    <nb-card>
+        <nb-card-header>{{user.name}}</nb-card-header>
+        <nb-card-body>
+          <toaster-container [toasterconfig]="config"></toaster-container>
+          <form class="form-horizontal">
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-3 form-control-label">
+                Status
+              </label>
+              <div class="col-sm-9">
+                <label class="custom-control custom-radio" *ngFor="let item of active_type">
+                  <input type="radio" class="custom-control-input" name="active" [(ngModel)]="user.active" [value]="item.id" [checked]="user.active == item.id">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">{{item.name}}</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-3 form-control-label">Agency</label>
+              <div class="col-sm-9">
+                <select class="form-control" name="agency" [(ngModel)]="selectedAgency" disabled>
+                  <option *ngFor="let agency of agencies" [value]="agency.id">{{agency.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-3 form-control-label">Advertiser Name</label>
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  placeholder="Please enter Advertiser Name"
+                  [(ngModel)]="user.name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-3 form-control-label">Credit</label>
+              <div class="col-sm-9">
+                <div class="input-group">
+                  <span class="input-group-addon success">$</span>
+                  <input type="text" class="form-control" name="credit" [(ngModel)]="user.commission"/>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-3 form-control-label">Margin</label>
+              <div class="col-sm-9">
+                <div class="input-group">
+                  <span class="input-group-addon success">%</span>
+                  <input type="text" class="form-control" name="margin" [(ngModel)]="user.margin"/>
+                </div>
+              </div>
+            </div>
+          </form>
+        </nb-card-body>
+        <nb-card-footer>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="submit" class="btn btn-info" (click)="saveClicked($event)">Save</button>
+              <button type="submit" class="btn btn-primary" (click)="cancelClicked($event)">Cancel</button>
+            </div>
+          </div>
+        </nb-card-footer>
+      </nb-card>
+  </div>
+</div>
